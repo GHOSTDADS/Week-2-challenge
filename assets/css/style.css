@@ -1,0 +1,240 @@
+* {
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+body{
+  background-color: #EFFBF5;
+}
+/* Header Section */
+/* sets the header container size, colours and sets as flex container */
+header {
+    padding: 20px;
+    display: flex;
+    background: #A0CFD3;
+    color: #87677B;
+  }
+
+h1 {
+  font-size: 250%;
+  margin: auto 0px auto 5%;
+  background-color: #B4EDD2;
+  padding: 1rem;
+  }
+
+#avatar {
+    margin-left: 2%;
+    max-width: 100px;
+    max-height: 120px;
+ }
+
+nav {
+    margin: auto 20px auto auto;
+ }
+
+li {
+  display: inline-flex;
+  margin-left: 50px;
+  }
+
+/* Sets the styling for the text anchors in the header and 'contact me' section,
+sets the zindex for the anchor so the ::after box goes behind the text, and */
+li a{
+  text-decoration: none;
+  position: relative;
+  color: #87677B;
+  padding: 10px 10px 5px ;
+  font-size: 28px;
+  border-bottom: 5px solid #B4EDD2;
+  z-index: 1;
+}
+
+li a::after{
+  background-color: #B4EDD2;
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transition: all .5s ease-in-out;
+  z-index: -1;
+  }
+
+li a:hover::after{
+  height: 100%;
+}
+
+nav a:active {
+  color: chocolate;    
+ }
+
+/* Banner image to break up the header and body */
+#banner {
+  height: 162px;
+  width: 100%;
+  background-image: url(../img/Banner.png);
+  background-position: center;
+ }
+
+/* Main section */
+
+/* about me section. */
+/* Creates a flex container to hold the header and the content. */
+#about-Me {
+  display: flex;
+}
+
+/* Sets the styling and sizing for the header 2s on the page. */
+h2 {
+  padding-right: 0.5%;
+  display: block;
+  font-size: 200%;
+  border-right: 10px solid #87677B;
+  margin: 1% 1% 1%  auto;
+  color: #87677B;
+}
+
+#about-Me p {
+  display: block;
+  width: 75%;
+  padding: 1rem 5rem;
+}
+
+/* the 'My Work' Section */
+/* sets the section to be flex */
+#my-Work {
+  display: flex;
+}
+
+/* sets the main and sub cardsto stack as a column, and sets the amount of screen width to take up */
+.card-container { 
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 1rem 5rem;
+  position: relative;
+}
+
+.sub {
+  display: flex;
+  position: relative;
+}
+.sub-header{
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  padding: 10px;
+  background-color: #87677B;
+  z-index: 2;
+  color: #fff;
+  
+}
+
+.card{
+  margin: 1.5%;
+  display: flex;
+  position: relative;
+  outline: #87677B solid .5rem;
+}
+
+.card::after{
+  background-color: #87677Bb0;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  transition: all .5s ease-in-out;
+}
+
+.card:hover::after{
+  background-color: #9a7aa000;
+}
+
+a img{
+  width: 100%;
+}
+
+/* Contact Me Section */
+#contact-Me{
+  display:flex;
+
+}
+
+#contact-Me h2, ul {
+  display: block;
+}
+
+#contact-Me ul{
+  width: 75%;
+  display: block;
+  padding: 1rem 5rem;
+  justify-content: space-between;
+}
+.links {
+
+}
+
+/* changes the flex wrap type and width of sections to work better for phone displays.
+Makes it a column style on the page. */
+@media screen and (max-width: 768px) {
+  Header {
+    display: flex;
+    flex-direction: column;
+  }
+  #avatar{
+    margin: 1% auto;
+  }
+  h2 {
+    margin: 1% auto;
+  }
+  nav ul{
+    margin: 1% auto;
+  }
+  #about-Me {
+    flex-direction: column;
+    display: flex;
+  }
+  #about-Me p {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+  }
+  #my-Work {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card-container {
+    display: flex;
+    width: 100%;
+    padding: 15px 20px;
+  }
+  
+  .sub{
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .card{
+    margin: 5%;
+    flex: 1 1 40%;
+  }
+  #contact-Me{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #contact-Me ul{
+    margin-left: -5%;
+    width: 100%;
+
+  }
+  .links {
+    font-size: 20px;
+    padding-top: 5px;
+    margin-left: 0;
+  }
+  .links a{
+    font-size: 20px;
+  }
+} 
