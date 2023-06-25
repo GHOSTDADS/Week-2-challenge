@@ -6,9 +6,9 @@
 
 /* sets the scrolling to smooth scrolling, so that clicking links scrolls the page down nicely, also sets basic font family*/
 * {
-    scroll-behavior: smooth;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  scroll-behavior: smooth;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
   /* background colour for the page */
 body{
@@ -18,11 +18,11 @@ body{
 /* Header Section */
 /* sets the header container size, colours and sets as flex container */
 header {
-    padding: 20px;
-    display: flex;
-    background: #A0CFD3;
-    color: var(--violet);
-  }
+  padding: 20px;
+  display: flex;
+  background: #A0CFD3;
+  color: var(--violet); 
+}
 
 /* sets the styling for header 1, sets the postion and adds a background and padding */
 h1 {
@@ -30,25 +30,25 @@ h1 {
   margin: auto 0px auto 5%;
   background-color: var(--celadon);
   padding: 1rem;
-  }
+}
 
 /* sets the positioning of the avatar image */
 #avatar {
-    margin-left: 2%;
-    max-width: 100px;
-    max-height: 120px;
- }
+  margin-left: 2%;
+  max-width: 100px;
+  max-height: 120px;
+}
 
 /* sets the positioning of the nav bar element */
 nav {
-    margin: auto 20px auto auto;
- }
+  margin: auto 20px auto auto;
+}
 
 /* sets the flex property of the lists used on the side and positioning */
 li {
   display: inline-flex;
   margin-left: 50px;
-  }
+}
 
 /* Sets the styling for the text anchors in the header and 'contact me' section,
 sets the z-index for the anchor so the a::after box goes behind the text. */
@@ -60,7 +60,7 @@ li a{
   font-size: 28px;
   border-bottom: 5px solid var(--celadon);
   z-index: 1;
-  }
+}
 
 /* creates the background box for the anchor links and sets the transition property */
 li a::after{
@@ -74,17 +74,17 @@ li a::after{
   height: 0;
   transition: all .5s ease-in-out;
   z-index: -1;
-  }
+}
 
 /* Makes the background box created in li a::after (above) grow to full height when hovered over */
 li a:hover::after{
   height: 100%;
-  }
+}
 
-/* Changes the colour of the anchors when pressed */
+/* Changes the colour of the text anchors when clicked/activated */
 li a:active {
   color: chocolate;    
- }
+}
 
 /* Banner image to break up the header and body */
 #banner {
@@ -92,7 +92,8 @@ li a:active {
   width: 100%;
   background-image: url(../img/Banner.png);
   background-position: center;
- }
+}
+
 
 /* Main Section */
 
@@ -181,82 +182,90 @@ a img{
 
 
 /* Contact Me Section */
+/* sets as flex container */
 #contact-Me{
   display:flex;
-
 }
 
+/* sets the display type for better postioning */
 #contact-Me h2, ul {
   display: block;
 }
 
+/* sets the list in 'contact me' section to take up 75% of the screen width and sets the padding
+(the styling for the anchor elements in 'conatct me' was done in the header section) */
 #contact-Me ul{
   width: 75%;
   display: block;
   padding: 1rem 5rem;
-  justify-content: space-between;
-}
-.links {
-
 }
 
-/* changes the flex wrap type and width of sections to work better for phone displays.
-Makes it a column style on the page. */
+/* sets the size of the floating div on the small cards to be better viewable on smaller devices */
+@media screen and (max-width: 992px) {
+  .sub-header {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
+
+/* changes the page once the mac width hits 768px, aka for phone displays */
 @media screen and (max-width: 768px) {
+  /* changes the flex direction of te header for better stacking of sub elements on small screens*/
   Header {
-    display: flex;
     flex-direction: column;
   }
-  #avatar{
+  /* sets the margins for header elements for better positioning on small screens */
+  #avatar, h2, nav ul {
     margin: 1% auto;
   }
-  h2 {
-    margin: 1% auto;
-  }
-  nav ul{
-    margin: 1% auto;
-  }
+  /* sets flex direction to column for better stacking  */
   #about-Me {
     flex-direction: column;
-    display: flex;
   }
+  /* sets the width for p in about me secontion and changes the padding for better display on small screen */
   #about-Me p {
-    display: block;
     width: 100%;
     padding: 15px 20px;
   }
+  /* sets the flex wrap for better stacking */
   #my-Work {
-    display: flex;
     flex-wrap: wrap;
   }
+  /* expands the element to take up more space, aiding in legebility, and sets new padding */
   .card-container {
-    display: flex;
     width: 100%;
     padding: 15px 20px;
   }
-  
+  /* makes the conainter for the small project cards take up more space when stacked, and lets the child elements wrap inside the container */
   .sub-container {
     flex-wrap: wrap;
     width: 100%;
   }
+  /* makes the floating div ontop of the smaller project images smaller for better readability on small screens */
+  .sub-header {
+    padding: 10px;
+    font-size: 16px;
+  }
+  /* changes the margins between small project cards, and sets the flex basis for consistent placement */
   .card{
     margin: 5%;
-    flex: 1 1 40%;
+    flex-basis: 40%;
   }
+  /* sets flex wrap for the container */
   #contact-Me{
-    display: flex;
     flex-wrap: wrap;
   }
+  /* lets the list take up the full screen for better readability */
   #contact-Me ul{
     margin-left: -5%;
     width: 100%;
-
   }
+  /* changes the padding and margins for the list items in'contact me' section for better positioning */
   .links {
-    font-size: 20px;
     padding-top: 5px;
     margin-left: 0;
   }
+  /* changes the font size */
   .links a{
     font-size: 20px;
   }
