@@ -1,56 +1,70 @@
+/* sets some colour variables */
+:root {
+  --violet: #87677B;
+  --celadon: #B4EDD2;
+}
+
+/* sets the scrolling to smooth scrolling, so that clicking links scrolls the page down nicely, also sets basic font family*/
 * {
     scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
   }
 
+  /* background colour for the page */
 body{
   background-color: #EFFBF5;
 }
+
 /* Header Section */
 /* sets the header container size, colours and sets as flex container */
 header {
     padding: 20px;
     display: flex;
     background: #A0CFD3;
-    color: #87677B;
+    color: var(--violet);
   }
 
+/* sets the styling for header 1, sets the postion and adds a background and padding */
 h1 {
   font-size: 250%;
   margin: auto 0px auto 5%;
-  background-color: #B4EDD2;
+  background-color: var(--celadon);
   padding: 1rem;
   }
 
+/* sets the positioning of the avatar image */
 #avatar {
     margin-left: 2%;
     max-width: 100px;
     max-height: 120px;
  }
 
+/* sets the positioning of the nav bar element */
 nav {
     margin: auto 20px auto auto;
  }
 
+/* sets the flex property of the lists used on the side and positioning */
 li {
   display: inline-flex;
   margin-left: 50px;
   }
 
 /* Sets the styling for the text anchors in the header and 'contact me' section,
-sets the zindex for the anchor so the ::after box goes behind the text, and */
+sets the z-index for the anchor so the a::after box goes behind the text. */
 li a{
   text-decoration: none;
   position: relative;
-  color: #87677B;
+  color: var(--violet);
   padding: 10px 10px 5px ;
   font-size: 28px;
-  border-bottom: 5px solid #B4EDD2;
+  border-bottom: 5px solid var(--celadon);
   z-index: 1;
-}
+  }
 
+/* creates the background box for the anchor links and sets the transition property */
 li a::after{
-  background-color: #B4EDD2;
+  background-color: var(--celadon);
   content: '';
   display: block;
   position: absolute;
@@ -62,11 +76,13 @@ li a::after{
   z-index: -1;
   }
 
+/* Makes the background box created in li a::after (above) grow to full height when hovered over */
 li a:hover::after{
   height: 100%;
-}
+  }
 
-nav a:active {
+/* Changes the colour of the anchors when pressed */
+li a:active {
   color: chocolate;    
  }
 
@@ -78,7 +94,7 @@ nav a:active {
   background-position: center;
  }
 
-/* Main section */
+/* Main Section */
 
 /* about me section. */
 /* Creates a flex container to hold the header and the content. */
@@ -91,11 +107,12 @@ h2 {
   padding-right: 0.5%;
   display: block;
   font-size: 200%;
-  border-right: 10px solid #87677B;
+  border-right: 10px solid var(--violet);
   margin: 1% 1% 1%  auto;
-  color: #87677B;
+  color: var(--violet);
 }
 
+/* sets the size for the p element in the about me section */
 #about-Me p {
   display: block;
   width: 75%;
@@ -114,48 +131,54 @@ h2 {
   flex-direction: column;
   width: 75%;
   padding: 1rem 5rem;
-  position: relative;
 }
 
-.sub {
-  display: flex;
+/* sets the size, outline and margin for the project images and aboslute positioned items to sit nicely on top */
+.main-card, .card {
   position: relative;
+  outline: var(--violet) solid .5rem;
+  margin: 1.5%;
 }
-.sub-header{
+
+/* sets the container properties to allow flex items */
+.sub-container {
+  display: flex;
+}
+
+/* Sets the positioning for the image description box floating ontop of each .card image, and the box size/colour and font colour */
+.main-header, .sub-header {
   position: absolute;
-  bottom: 20%;
+  bottom: 10%;
   left: 0;
-  padding: 10px;
-  background-color: #87677B;
+  padding: 20px;
+  background-color: var(--violet);
   z-index: 2;
   color: #fff;
-  
+  font-size: 20px;
 }
 
-.card{
-  margin: 1.5%;
-  display: flex;
-  position: relative;
-  outline: #87677B solid .5rem;
-}
-
-.card::after{
-  background-color: #87677Bb0;
+/* puts a semi transparent colour over the top of the project images and sets the transirtion properties */
+.main-card::after, .card::after {
   content: '';
+  position: absolute;
+  top: 0;
+  background-color: #87677Bb0;
   display: block;
   height: 100%;
-  position: absolute;
   width: 100%;
   transition: all .5s ease-in-out;
 }
 
-.card:hover::after{
+/* removes the semi transparent colour when hovering over the image/link */
+.main-card:hover::after, .card:hover::after {
   background-color: #9a7aa000;
 }
 
+/* makes the image fill up the anchor box fully */
 a img{
   width: 100%;
 }
+
 
 /* Contact Me Section */
 #contact-Me{
@@ -212,7 +235,7 @@ Makes it a column style on the page. */
     padding: 15px 20px;
   }
   
-  .sub{
+  .sub-container {
     flex-wrap: wrap;
     width: 100%;
   }
