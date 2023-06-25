@@ -21,7 +21,7 @@ either run URL provided or use your own hosting to view the webpage.
 
 View webpage on browser of your choice.
 
-![picture of the webpage](./screenshot/screenshot.png)
+<img src="./screenshot/screenshot.png" alt="picture of the webpage" />
 
 ## Credits
 
